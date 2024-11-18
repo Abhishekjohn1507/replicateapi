@@ -15,7 +15,12 @@ const replicate = new Replicate({
 
 app.use(express.json()); // Middleware to parse JSON body
 
-// POST endpoint
+// GET root route to confirm the API is working
+app.get("/", (req, res) => {
+  res.send("API is working!");  // Customize your message
+});
+
+// POST endpoint to generate image
 app.post("/generate-image", async (req, res) => {
   try {
     const data = req.body;
